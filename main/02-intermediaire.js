@@ -4,17 +4,20 @@
  * Exemple : [1, 2, 3] et ["apple", "orange", "banana"] renverra : [1, "apple", 2, "orange", 3, "banana"]
  */
 function combine(tableau1, tableau2) {
-    var firstTab =[];
-    if (tableau1.length !== tableau2.length) return
-    for (var i = 0; i < tableau1.length; i++) {
-        firstTab[i*2] = tableau1[i];
-        firstTab[i*2+1]= tableau2[i];
+    let firstTab = [];
+    let i = 0;
+    if (tableau1.length !== tableau2.length)
+    return
+    while (i < tableau1.length){
+        firstTab [i*2] = tableau1[i];
+        firstTab [i*2+1] = tableau2[i];
+        i++;
     }
     return firstTab;
 }
-var tableau1Combine = [1, 2, 3, 4, 5, 6];
-var taleau2Combine = ['orange', 'apple', 'strawberry', 'banana','pear','pineapple'];
-console.log(combine(tableau1Combine, tableau2Combine))
+let tableau1 = [1, 2, 3, 4, 5, 6];
+let taleau2 = ['orange', 'apple', 'strawberry', 'banana','pear','pineapple'];
+console.log(combine(tableau1, tableau2))
 
 /**
  * Programmer une fonction prenant en argument un tableau d'éléments et une valeur offset, et qui renvoie un tableau avec les valeurs du tableau en argument décalées de la valeur
@@ -23,8 +26,18 @@ console.log(combine(tableau1Combine, tableau2Combine))
  * Par exemple : rotate([1, 2, 3, 4, 5], 2) renverra [4, 5, 1, 2, 3] 
  */
 function rotate(tableau, offset) {
-
+    let Result = [];
+    let Compteur = offset;
+    let x = 0;
+    while ( x < tableau.length) {
+        if (x + Compteur >= tableau.length) Compteur = -x;
+        Result[x] = tableau[x + Compteur];
+        x++;
+    }
+    return Compteur
 }
+let tableauRotate = [1, 2, 3, 4, 5];
+console.log (rotate(tableauRotate, 2))
 
 /**
  * Suite de Syracuse
@@ -38,5 +51,19 @@ function rotate(tableau, offset) {
  * Pour 1, la suite sera : [1, 4, 2, 1, 4, 2, 1, 4, 2, 1]
  */
 function syracuse(nombre) {
-
+    var Numero = nombre;
+    var Resultat = [];
+    Resultat[0] = Numero;
+    for (var i=1; i < 10; i++) {
+        if (Numero % 2 === 0)
+        {
+            Numero /=2;
+        }else{
+            Numero = Numero * 3 + 1;
+        }
+        Resultat[i] = Numero;
+    }
+    return Resultat;
 }
+var syracuseResult = 21;
+console.log(syracuse(syracuseResult))

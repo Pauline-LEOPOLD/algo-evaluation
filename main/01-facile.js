@@ -23,10 +23,10 @@ function nombresPairs(nombre) {
     let tableauResult = [];
     let tableauFinal = 0;
     let nombres = 0;
-    while (nombre < nombre.length) {
+    while (nombres < nombre.length) {
         if (nombre[nombres] % 2 === 0) {
-            tableauResult[tab] = nombre[nombres];
-            tab++;
+            tableauResult[tableauFinal] = nombre[nombres];
+            tableauFinal++;
         }
         nombres++
     }
